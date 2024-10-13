@@ -1,0 +1,16 @@
+name: sciarticle_rabbitmq
+
+volumes:
+  sciarticle_rabbitmq:
+
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:4.0.2-management-alpine
+    restart: always
+    env_file: ../.env
+    volumes:
+      - sciarticle_rabbitmq:/var/lib/rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
